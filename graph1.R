@@ -84,7 +84,7 @@ library(lattice)
 hist(df1$sales)
 hist(df1$sales, freq=F, col=1:12, breaks=12)
 ?hist
-lines(density(df1$sales), lwd=2, col='red')
+lines(density(df1$sales), lwd=5, col='red')
 
 str(df1)
 #box plots
@@ -116,3 +116,4 @@ abline(v=adf1[adf1$coy=='coy1',]$sales)
 
 barplot(adf1$sales,names.arg=adf1$coy, beside=T, legend=rownames(adf1), col=1:3)
 abline(v=adf1[adf1$coy=='coy1',]$sales)
+
