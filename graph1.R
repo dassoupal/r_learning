@@ -1,12 +1,17 @@
 # Plot using Business Data
 #use df1 : load(file='./data/ba.Rdata')
 # Data
+load(df1, file='./data/badata.Rdata')
+df1
+attach(df1)
+?plot
 
 #scatter Plot
 plot(adtv, sales)
-plot(x=adtv, y=adweb, pch=10, type='p', col='green')
+plot(x=adtv, y=adweb, pch=13, type='p', col='blue')
 abline(lm(adweb ~ adtv))
 
+install.packages('car')
 car::scatterplot(sales ~ ., data=df1, legend.columns=T)
 car::scatterplot(sales ~ adtv, data=df1, legend.columns=T)
 
@@ -17,6 +22,7 @@ pairs( ~ sales + adtv + adweb, data=df1)
 
 
 #Corrgrams
+install.packages('corrgram')
 library(corrgram)
 names(df1)
 cor(df1[c('sales','adtv','adweb')])
@@ -34,6 +40,9 @@ corrgram::corrgram(df1[nvars], order=T, upper.panel=panel.cor)
 
 
 #Mosaic Plot
+install.packages('vcd')
+install.packages('grid')
+library(grid)
 library(vcd)
 data(Titanic)
 vcd::mosaic(Titanic, shade=T, legend=T)
@@ -50,6 +59,7 @@ mean(sales)
 plot(sales, pch=18)
 plot(density(sales))
 hist(sales, bin=10)
+install.packages('ggplot2')
 library(ggplot2)
 plot(x=Aadv1, y=Asales1)
 #ggplot(data=df1 + aes(x=df1$Aadv1, y=df1$Acoy1)) + geom_point()
@@ -67,6 +77,8 @@ names(df1)
 ggplot(data=df1) + aes(y=sales, x=adtv, + geom_point(binwidth=5, colour="black", fill="white") )  #not working
 df1
 
+install.packages('lattice')
+library(lattice)
 
 #Histogram
 hist(df1$sales)
