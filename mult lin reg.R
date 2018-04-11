@@ -35,7 +35,7 @@ mlrmodel1 = lm(formula = sales ~ price + promotion, data=omni)
 mlrmodel1 = lm( data=omni, formula = sales ~ price + promotion)
 
 # summary statistics of model IMP STEP
-
+summary(mlrmodel1)
 #understand values : R2, AdjR2, Fstats pvalue, Coeff, ***, Residuals
 
 #coefficients b1, b2
@@ -43,13 +43,15 @@ mlrmodel1 = lm( data=omni, formula = sales ~ price + promotion)
 
 
 #Predicted Values----
+fitted(mlrmodel1)
 
 #create a dataframe of new sample values
-(ndata1 = data.frame(price=c(60,70), promotion=c(300,400)))
+(ndata1 = data.frame(price=c(60,70, 80,90), promotion=c(300,400, 500,600)))
+predict(mlrmodel1, newdata= ndata1)
 
 #cbind the values
 
-
+cbind(omni, fitted(mlrmodel1), fitted(mlrmodel1)-omni$sales, residuals(mlrmodel1) )
 
 
 
