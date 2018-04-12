@@ -60,4 +60,6 @@ addmargins(prop.table(ftable(students2)))
 fity= rpart(buy~gender+married, data= students2, minsplit=2)
 summary(fity)
 fity
-rpart.plot(fity, type=2, extra=104, tweak=1.2, shadow=c('brown', 'green', 'red'), nn=T)
+rpart.plot(fity, type=2, extra=104, tweak=0.8, shadow=c('brown', 'green', 'red'), nn=T)
+fity
+prp(fity)
