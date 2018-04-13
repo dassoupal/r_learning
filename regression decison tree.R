@@ -137,7 +137,6 @@ UncappedModelAccuarcy = accuracy(f = CartFullModelPredictTest, x = Mer_SalesTest
 UncappedModelAccuarcy
 
 
-Lift = 100/ 400 / ((200 /
-                      400) * (160/400))AIC(CartModel_1)
+Lift = ((100/ 400 / ((200 /400) * (160/400)) AIC(CartModel_1))
 windows()
 fancyRpartPlot(model = CartModel_1, main = "Final CART Regression Tree", cex = 0.6, sub = "Model 12")
